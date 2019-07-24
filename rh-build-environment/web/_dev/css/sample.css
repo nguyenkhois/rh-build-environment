@@ -1,0 +1,10 @@
+.home {
+  position: relative;
+  width: em(110);
+  height: em(110);
+  cursor: pointer;
+  background: #941E1E;
+  border-radius: 20%;
+  color: #ffffff;
+  height: 5em;
+  padding: 1em; }

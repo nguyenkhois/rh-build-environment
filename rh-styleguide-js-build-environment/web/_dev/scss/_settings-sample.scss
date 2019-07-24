@@ -1,0 +1,169 @@
+// ********
+// SITE ***
+// ********
+
+$site                   : regionhalland;
+
+// *******************
+// från _base.scss ***
+// *******************
+
+// Spacing
+$space-1                : 0.5rem;
+$space-2                : 1rem;
+$space-3                : 2rem;
+$space-4                : 4rem;
+$space-5                : 8rem;
+$space-6                : 16rem;
+
+// Type-scale
+$h1                     : 2rem;
+$h2                     : 1.5rem;
+$h3                     : 1.25rem;
+$h4                     : 1rem;
+$h5                     : 0.875rem;
+$h6                     : 0.75rem;
+
+// Breakpoints Small Tablets
+$breakpoint-sm          : 40em;
+
+// Breakpoints Tablet
+$breakpoint-md          : 65em;
+
+// Breakpoints Laptop and up
+$breakpoint-lg          : 80em;
+
+$breakpoints: (
+				xs: 0,
+				sm: $breakpoint-sm,
+				md: $breakpoint-md,
+				lg: $breakpoint-lg,
+) !default;
+
+// Widths
+$width-1                : 24rem;
+$width-2                : 32rem;
+$width-3                : 48rem;
+$width-4                : 64rem;
+
+// Typography
+$sans-font-family       : Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$code-font-family       : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+// Line-height
+$line-height-1          : 1;
+$line-height-2          : 1.125;
+$line-height-3          : 1.25;
+$line-height-4          : 1.5;
+$letter-spacing         : 1;
+$caps-letter-spacing    : 0.2em;
+$bold-font-weight       : bold;
+
+// ********************
+// från _color.scss ***
+// ********************
+
+// Descriptive Base Colors
+$white                  : #fff;
+$black                  : #000;
+
+// Grey colors
+$grey-lightest	        : #F4F4F4;
+$grey-lighter	        : #E4E4E4;
+$grey-light 	        : #D1D1D1;
+$grey-base 		        : #B1B1B1;
+$grey-dark		        : #7E7E7E;
+$grey-darker	        : #575757;
+$grey-darkest 	        : #2F2F2F;
+
+// Base1 colors
+$base1-light			: #B2C8DE;
+$base1					: #004890;
+$base1-dark				: #003265;
+
+// Base2 colors
+$base2-lighter			: #F5F8FB;
+$base2-light      		: #D0E3F3;
+$base2		       		: #61A2D8;
+$base2-dark       		: #447197;
+
+// Base3 colors
+$base3-light  			: #C3DCC1;
+$base3     				: #378A30;
+$base3-dark   			: #266122;
+
+// Complementary1 colors
+$complementary1-light   : #941E1E;
+$complementary1    		: #C3D04C;
+$complementary1-dark    : #899235;
+
+// Complementary2 colors
+$complementary2-light	: #FEE7B9;
+$complementary2			: #FCAF15;
+$complementary2-dark	: #B07A0F;
+
+// Complementary3 colors
+$complementary3-light   : #E3B7BE;
+$complementary3     	: #A01026;
+$complementary3-dark    : #700B1B;
+
+// Warning colors
+$warning-light   		: #FCC8C8;
+$warning		     	: #C82828;
+$warning-dark    		: #941E1E;
+
+// Vuxhalland colors
+$link-visited			: #551A8B;
+$vuxhalland             : #E99579;
+$vuxhalland2            : #D07D88;
+
+// Color Usage
+$color-primary          : $base1;
+$color-secondary        : $base3;
+$color-shadow           : rgba($black, 0.35);
+$yellow-background      : #FEF9EE;
+
+// *************************
+// från _typography.scss ***
+// *************************
+
+// Typography small
+$h1-small            	: em(24);
+$h2-small               : em(22);
+$h3-small               : em(20);
+$h4-small               : em(18);
+$h5-small               : em(16);
+$h6-small               : em(14);
+$p-small                : em(13);
+
+// Typography medium
+$h1-medium              : em(32);
+$h2-medium              : em(26);
+$h3-medium              : em(22);
+$h4-medium              : em(20);
+$h5-medium              : em(18);
+$h6-medium              : em(16);
+$p-medium               : em(15);
+
+// Typography large
+$h1-large              : em(40);
+$h2-large              : em(28);
+$h3-large              : em(24);
+$h4-large              : em(22);
+$h5-large              : em(20);
+$h6-large              : em(18);
+$p-large               : em(16);
+
+// Heading size
+$heading-line-height-small        : em(35);
+$heading-line-height-medium-large : em(30);
+
+// Font-size
+$font-size-small       : em(13);
+$font-size-medium      : em(15);
+$font-size-large       : em(16);
+
+// Line-height
+$line-height-small 	   : em(20);
+$line-height-medium    : em(21);
+$line-height-large     : em(22);

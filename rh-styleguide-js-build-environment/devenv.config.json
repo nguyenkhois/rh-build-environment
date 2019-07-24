@@ -1,0 +1,22 @@
+{
+    "name": "devenv",
+    "description": "The config file is using for the local front-end development environment",
+    "localServer": {
+        "name": "localhost",
+        "port": 3000,
+        "staticDirs": ["./web"],
+        "staticExtensions": ["html"]
+    },
+    "codeBase": [ "web/*.html" ],
+    "development": {
+        "cssDevPath": "web/_dev/css",
+        "scssDevPath": ["web/_dev/scss/*.scss"],
+        "jsDevPath": "web/_dev/js",
+        "jsDevEntryPoints": ["sample.js"]
+    },
+    "production": {
+        "bundleName": "extend",
+        "jsPublicPath": "web/include/scripts",
+        "cssPublicPath": "web/include/styles"
+    }
+}

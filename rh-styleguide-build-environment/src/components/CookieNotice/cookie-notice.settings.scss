@@ -1,0 +1,20 @@
+@import '../../styles/common';
+
+// Color
+$cookie__color-main__dark: #004890;
+$cookie__color-main__light: #d0e3f3;
+$cookie__color-text__normal: initial;
+
+$cookie__placeholder__width: 100%;
+$cookie__placeholder__max-width: initial;
+$cookie__placeholder__border: initial;
+$cookie__placeholder__margin: auto;
+$cookie__placeholder__background-color: $cookie__color-main__light;
+
+// Component's setting
+$cookie__border: initial;
+$cookie__width: 100%;
+$cookie__max-width: $page-content__max-width;
+$cookie__margin: auto;
+
+$cookie__button__min-width: 13ex;

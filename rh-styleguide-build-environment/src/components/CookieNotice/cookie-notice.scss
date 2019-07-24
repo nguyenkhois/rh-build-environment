@@ -1,0 +1,38 @@
+@import './cookie-notice.settings.scss';
+
+// Placeholder
+.fix-cookie__placehoder {
+    width: $cookie__placeholder__width;
+    max-width: $cookie__placeholder__max-width;
+    border: $cookie__placeholder__border;
+    margin: $cookie__placeholder__margin;
+    background-color: $cookie__placeholder__background-color;
+}
+
+// Container - Component - Elements
+.fix-cookie {
+    width: $cookie__width;
+    max-width: $page-content__max-width;
+    margin: $cookie__margin;
+    border: $cookie__border;
+
+    &-icon {
+        @include medium { 
+            margin: 1.25em 1.25em 1.25em 0;
+            padding: 0;
+        }
+
+        &:after {
+            padding: 0;
+        }
+    }
+
+    &-description {
+        color: $cookie__color-text__normal;
+    }
+
+    &-button {
+        min-width: $cookie__button__min-width; // Using for IE11
+        cursor: pointer;
+    }
+}

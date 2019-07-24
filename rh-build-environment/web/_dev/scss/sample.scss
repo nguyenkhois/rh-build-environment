@@ -1,0 +1,16 @@
+// Settings
+@import 'settings-sample';
+
+.home {
+    position: relative;
+    width: em(110);
+    height: em(110);
+
+    cursor: pointer;
+
+    background: $complementary1-light;
+    border-radius: 20%;
+    color: #ffffff;
+    height: 5em;
+    padding: 1em;
+}

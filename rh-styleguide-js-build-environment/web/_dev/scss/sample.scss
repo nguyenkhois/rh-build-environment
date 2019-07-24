@@ -1,0 +1,16 @@
+// Settings
+@import 'settings-sample';
+
+.home {
+    position: relative;
+    width: em(110);
+    height: em(110);
+
+    cursor: pointer;
+
+    background: $color-primary;
+    border-radius: 5%;
+    color: #f9f9f9;
+    height: 5em;
+    padding: 1em;
+}

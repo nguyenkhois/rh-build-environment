@@ -1,0 +1,10 @@
+.vs
+.vscode
+.idea
+.DS_Store
+
+node_modules
+.netlify
+
+dist
+package-lock.json

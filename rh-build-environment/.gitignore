@@ -1,0 +1,20 @@
+# General
+.vs
+.vscode
+.idea
+.DS_Store
+
+# Node.js
+node_modules
+package-lock.json
+
+# Using for front-end development
+#_dev
+#.editorconfig
+#.eslintignore
+#.eslintrc.json
+#devenv.config.json
+#gulpfile.js
+#LICENSE
+#package.json
+#README.md
