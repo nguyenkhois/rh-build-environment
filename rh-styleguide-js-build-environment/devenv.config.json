@@ -7,7 +7,7 @@
         "staticDirs": ["./web"],
         "staticExtensions": ["html"]
     },
-    "codeBase": [ "web/*.html" ],
+    "codeBase": [ "web/**/*.{html,js}" ],
     "development": {
         "cssDevPath": "web/_dev/css",
         "scssDevPath": ["web/_dev/scss/*.scss"],
