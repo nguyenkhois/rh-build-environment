@@ -1,5 +1,5 @@
 # The Styleguide JS development environment
-The project is based on another project that is the [front-end development environment](https://github.com/nguyenkhois/rh-build-environment) (using together with back-end).
+The project is based on another project that is the [front-end development environment](https://github.com/nguyenkhois/rh-build-environment) (using together with back-end).L0
 
 The project template is using a specific structure that's why it's only using for RH organization. You should NOT using this repo if you don't know what you need.
 
@@ -24,10 +24,11 @@ The project template is using a specific structure that's why it's only using fo
 ## Project structure
 |Location|Description|
 |---|---|
-|`/web`|Your static website's location (Ex: HTML code).|
-|`/web/_dev`|Your front-end code that is only using for the development.|
-|`/web/include/scripts`|JS files will be compiled here for the production|
-|`/web/include/styles`|SCSS files will be compiled to CSS here for the production|
+|`/src`|Your static website's location (Ex: HTML code).|
+|`/src/_dev`|Your front-end code that is only using for the development.|
+|`/src/app.config.json`|Configuration for the application|
+|`/public/scripts`|JS files will be compiled here for the production|
+|`/public/styles`|SCSS files will be compiled to CSS here for the production|
 |`/devenv.config.json`|Configuration for the local front-end web server|
 
 ## Using

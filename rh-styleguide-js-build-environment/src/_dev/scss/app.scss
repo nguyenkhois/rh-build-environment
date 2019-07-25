@@ -1,0 +1,42 @@
+.app {
+    &__header {
+        margin: 1em;
+
+        h1 {
+            color: #135c86;
+        }
+
+        &__menu {
+            a {
+                text-decoration: none;
+                color: #1a76ac;
+                line-height: 1.5em;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__detail-info {
+        margin: 2em 1em;
+
+        &__title {
+            font-weight: bold;
+        }
+
+        &__container {
+            white-space: pre-wrap;
+        }
+
+        &__text-important {
+            color: blue;
+            font-weight: bold;
+        }
+
+        &__text-notice {
+            color: #808080;
+            font-size: .9em
+        }
+    }
+}

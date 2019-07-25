@@ -1,0 +1,23 @@
+.app__header {
+  margin: 1em; }
+  .app__header h1 {
+    color: #135c86; }
+  .app__header__menu a {
+    text-decoration: none;
+    color: #1a76ac;
+    line-height: 1.5em; }
+  .app__header__menu a:hover {
+    text-decoration: underline; }
+
+.app__detail-info {
+  margin: 2em 1em; }
+  .app__detail-info__title {
+    font-weight: bold; }
+  .app__detail-info__container {
+    white-space: pre-wrap; }
+  .app__detail-info__text-important {
+    color: blue;
+    font-weight: bold; }
+  .app__detail-info__text-notice {
+    color: #808080;
+    font-size: .9em; }

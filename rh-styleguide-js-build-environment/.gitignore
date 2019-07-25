@@ -8,6 +8,7 @@
 node_modules
 package-lock.json
 
+public
 # Using for front-end development
 #_dev
 #.editorconfig
