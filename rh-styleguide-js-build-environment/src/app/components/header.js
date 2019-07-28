@@ -1,18 +1,18 @@
-$(document).ready(function () {
-    var $appHeader = $("<section></section>", { "class": "app__header" });
-    $appHeader.append("<div><h1>Styleguide build environment</h1></div>");
+var appHeaderSectionTag = document.createElement("section");
+appHeaderSectionTag.innerHTML =
+"<section class='app__header'>" +
+    "<div><h1>Styleguide build environment</h1></div>" +
+    "<nav class='app__header__menu'>" +
+        "<ul>"+
+            "<li><a href='/'>Home</a></li>" +
+            "<li><a href='/menu'>Menu component</a></li>" +
+        "</ul>"+
+    "</nav>" +
+"</section>";
 
-    var $appHeaderNav = $("<nav></nav>", { "class": "app__header__menu" });
-
-    var appHeaderMenu =
-        "<ul>" +
-        "<li><a href=\"/\">Home</a></li>" +
-        "<li><a href=\"/menu\" title=\"Menu component\">Menu</a></li>" +
-        "</ul>";
-
-    $appHeaderNav.append(appHeaderMenu);
-    $appHeader.append($appHeaderNav);
-
-    // Render Header component
-    $('body').prepend($appHeader);
-});
+var bodyFirstChild = document.body.firstChild;
+if (bodyFirstChild) {
+    document.body.insertBefore(appHeaderSectionTag, bodyFirstChild);
+} else {
+    document.body.append(appHeaderSectionTag);
+}

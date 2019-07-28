@@ -9,6 +9,8 @@ node_modules
 package-lock.json
 
 public
+.netlify
+
 # Using for front-end development
 #_dev
 #.editorconfig

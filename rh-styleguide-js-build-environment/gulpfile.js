@@ -2,12 +2,7 @@ const { watch, src, series, dest } = require('gulp');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
-const minify = require('gulp-minify');
 const browserSync = require('browser-sync').create();
-const browserify = require('browserify');
-const babelify = require('babelify');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
 const replace = require('gulp-replace');
 
 // gulp-sass - Using for forwards-compatibility and explicitly
@@ -15,7 +10,7 @@ sass.compiler = require('node-sass');
 
 // Get configs from a JSON file
 const { localServer, codeBase, development, production } = require('./devenv.config.json');
-const { devPath, cssDevPath, scssDevPath, jsDevPath, jsDevEntryPoints, htmlDevPath } = development;
+const { devPath, cssDevPath, scssDevPath, jsDevPath, htmlDevPath } = development;
 const { publicPath, jsPublicPath, cssPublicPath, bundleName, neededDirectories } = production;
 
 // Dev server
@@ -61,6 +56,8 @@ function test_server(cb) {
             },
         }
     });
+
+    watch(['**/*']).on('change', browserSync.reload);
 
     cb();
 }
@@ -118,27 +115,12 @@ function build_scss(cb) {
  */
 function build_js(cb) {
     let isSuccess = true;
-    const jsEntries = jsDevEntryPoints.map((entry) => `${jsDevPath}/${entry}`);
     const jsFullFilename = `${bundleName}.js`;
 
-    browserify({
-        entries: jsEntries,
-        extensions: ['.js'],
-        debug: true
-    })
-        .transform(babelify, {
-            presets: ["@babel/preset-env"],
-            plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
-        })
-        .bundle()
-        .pipe(source(jsFullFilename))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(minify({
-            noSource: true,
-            ext: { min: '.min.js' }
-        }))
-        .pipe(sourcemaps.write("."))
+    src(jsDevPath)
+        .pipe(sourcemaps.init())
+        .pipe(concat(jsFullFilename))
+        .pipe(sourcemaps.write('.'))
         .pipe(dest(jsPublicPath))
         .on('error', (error) => {
             isSuccess = false;

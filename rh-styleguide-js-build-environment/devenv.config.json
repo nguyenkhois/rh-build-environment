@@ -10,8 +10,7 @@
         "devPath": "src",
         "cssDevPath": "src/_dev/css",
         "scssDevPath": ["src/_dev/scss/*.scss"],
-        "jsDevPath": "src/_dev/js",
-        "jsDevEntryPoints": ["home.js", "menu.js"],
+        "jsDevPath": ["src/_dev/js/*.js"],
         "htmlDevPath": "src/*.html"
     },
     "production": {
