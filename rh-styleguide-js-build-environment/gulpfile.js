@@ -5,6 +5,15 @@ const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const replace = require('gulp-replace');
 
+const browserify = require('browserify');
+const babelify = require('babelify');
+const minify = require('gulp-minify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const globby = require('globby');
+
+const fs = require('fs');
+
 // gulp-sass - Using for forwards-compatibility and explicitly
 sass.compiler = require('node-sass');
 
@@ -14,7 +23,7 @@ const { devPath, cssDevPath, scssDevPath, jsDevPath, htmlDevPath } = development
 const { publicPath, jsPublicPath, cssPublicPath, bundleName, neededDirectories } = production;
 
 // Dev server
-function dev_server(cb) {
+function devServer(cb) {
     const { port, staticExtensions } = localServer;
 
     browserSync.init({
@@ -41,7 +50,7 @@ function dev_server(cb) {
 }
 
 // Test server
-function test_server(cb) {
+function testServer(cb) {
     const { port, staticExtensions } = localServer;
 
     browserSync.init({
@@ -57,7 +66,7 @@ function test_server(cb) {
         }
     });
 
-    watch(['**/*']).on('change', browserSync.reload);
+    watch([`${publicPath}/**/*`]).on('change', browserSync.reload);
 
     cb();
 }
@@ -78,7 +87,7 @@ function compile_scss(cb) {
  * The function will be bundle all CSS files into the file bundle.css
  * @param {callback} cb
  */
-function build_scss(cb) {
+function scssBuild(cb) {
     let isSuccess = true;
     const cssFullFilename = `${bundleName}.css`;
 
@@ -106,14 +115,7 @@ function build_scss(cb) {
     cb();
 }
 
-/**
- * All JS entries will be bundled into the file bundle.min.js
- * The bundle should be compatible with IE11, Chrome, Firefox,...
- * Developer can using ES6 and import/ export syntax. It will be easier to share and reuse JS code.
- * It compiles ES6 to ES5.
- * @param {callback} cb
- */
-function build_js(cb) {
+function jsBuild(cb) {
     let isSuccess = true;
     const jsFullFilename = `${bundleName}.js`;
 
@@ -128,11 +130,61 @@ function build_js(cb) {
         })
         .on('end', () => {
             if (isSuccess) {
-                console.log(`\n\x1b[32m√ Done!\x1b[0m Bundle successfully JS files into \x1b[90m${jsPublicPath}\x1b[0m.`);
+                console.log(`\n\x1b[32m√ Done!\x1b[0m Build successfully JS files into \x1b[90m${jsPublicPath}\x1b[0m.`);
             } else {
-                console.error('\n\x1b[31m✗ Error!\x1b[0m Can not bundle JS files.');
+                console.error('\n\x1b[31m✗ Error!\x1b[0m Can not build JS files.');
             }
         });
+
+    cb();
+}
+
+/**
+ * All JS entries will be bundled into the file bundle.min.js
+ * The bundle should be compatible with IE11, Chrome, Firefox,...
+ * Developer can using ES6 and import/ export syntax. It will be easier to share and reuse JS code.
+ * It compiles ES6 to ES5.
+ * @param {callback} cb
+ */
+function jsMinify(cb) {
+    const jsFullFilename = `${bundleName}.js`;
+
+    globby(jsDevPath)
+        .then((jsEntries) => {
+            let isSuccess = true;
+
+            browserify({
+                entries: jsEntries,
+                extensions: ['.js'],
+                debug: true
+            })
+                .transform(babelify, {
+                    presets: ["@babel/preset-env"],
+                    plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
+                })
+                .bundle()
+                .pipe(source(jsFullFilename))
+                .pipe(buffer())
+                .pipe(sourcemaps.init({ loadMaps: true }))
+                .pipe(minify({
+                    noSource: true,
+                    ext: { min: '.min.js' }
+                }))
+                .pipe(sourcemaps.write("."))
+                .pipe(dest(jsPublicPath))
+                .on('error', (error) => {
+                    isSuccess = false;
+                    console.error(error);
+                })
+                .on('end', () => {
+                    if (isSuccess) {
+                        console.log(`\n\x1b[32m√ Done!\x1b[0m Bundle successfully JS files in \x1b[90m${jsPublicPath}\x1b[0m.`);
+                    } else {
+                        console.error('\n\x1b[31m✗ Error!\x1b[0m Can not bundle JS files.');
+                    }
+                });
+        })
+        .catch((error) => console.error(error));
 
     cb();
 }
@@ -158,6 +210,7 @@ function copyHtmlFiles(cb) {
 
 function copyOtherDirectories(cb) {
     let isSuccess = true;
+
     src(neededDirectories, { base: devPath })
         .pipe(dest(publicPath))
         .on('error', (error) => {
@@ -172,13 +225,46 @@ function copyOtherDirectories(cb) {
             }
         });
 
-    src('src/app.config.json')
-        .pipe(replace('development', 'production'))
-        .pipe(dest(publicPath));
+    cb();
+}
+
+function copyAppConfigFile(cb, modeEnv = 'production') {
+    const appConfigFile = `${devPath}/app.config.json`;
+    const appConfigFilePublic = `${publicPath}/app.config.json`;
+
+    if (fs.existsSync(appConfigFile)) {
+        fs.readFile(appConfigFile, (err, data) => {
+            if (err) throw err;
+
+            const appConfigData = JSON.parse(data) || {};
+            const newData = Object.assign(appConfigData, { environment: modeEnv });
+
+            const newConfig = JSON.stringify(newData, null, 2);
+            fs.writeFile(appConfigFilePublic, newConfig, (err) => {
+                if (err) throw err;
+                console.log(`\n\x1b[32m√ Done!\x1b[0m Copy successfully the config file to \x1b[90m${appConfigFilePublic}\x1b[0m.`);
+            });
+        });
+    }
 
     cb();
 }
 
-exports.default = dev_server;
-exports.build = series(build_scss, build_js, copyHtmlFiles, copyOtherDirectories);
-exports.test = test_server;
+function copyAppConfigForBuild(cb) {
+    copyAppConfigFile(cb, 'build');
+    cb();
+}
+
+function copyAppConfigForProduction(cb) {
+    copyAppConfigFile(cb, 'production');
+    cb();
+}
+
+exports.default = devServer;
+exports.test = testServer;
+
+exports.minifycode = series(scssBuild, jsMinify);
+exports.buildcode = series(scssBuild, jsBuild);
+
+exports.build = series(scssBuild, jsBuild, copyHtmlFiles, copyOtherDirectories, copyAppConfigForBuild);
+exports.publish = series(scssBuild, jsMinify, copyHtmlFiles, copyOtherDirectories, copyAppConfigForProduction);
