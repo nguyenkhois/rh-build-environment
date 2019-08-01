@@ -1,9 +1,0 @@
-{
-    "title": "Cookie notice",
-    "status": "wip",
-    "context": {
-        "message": "På den här webbplatsen använder vi cookies (kakor) för att webbplatsen ska fungera på ett bra sätt för dig. Genom att klicka vidare eller på “Jag förstår” godkänner du att vi använder cookies.",
-        "buttonText": "Jag förstår",
-        "buttonExplanation": "Text som förklarar funktionen om man lyssnar med talsyntes utan att se kontexten"
-    }
-}

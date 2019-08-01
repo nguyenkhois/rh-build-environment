@@ -1,0 +1,44 @@
+{
+    "title": "Image block",
+    "status": "prototype",
+    "version": "0.0.0",
+    "context": "",
+    "variants": [
+        {
+            "name":"default",
+            "status":"prototype",
+            "context": {
+                "heroImage": {
+                    "src": "/images/components/Molecules/event-calendar-block/event-calendar-block.png",
+                    "alt": ""
+                },
+                "caption": {
+                    "modifier": "--under-image",
+                    "extendClass": "rh-image-block-extend__caption",
+                    "text": {
+                        "content": "Copyright by someone",
+                        "extendClass": "rh-image-block-extend__caption__text"
+                    }
+                }
+            }
+        },
+        {
+            "name":"over image",
+            "status":"prototype",
+            "context": {
+                "heroImage": {
+                    "src": "/images/components/Molecules/event-calendar-block/event-calendar-block.png",
+                    "alt": ""
+                },
+                "caption": {
+                    "modifier": "--square",
+                    "extendClass": "rh-image-block-extend__caption rh-image-block-extend__caption--over-image--right-bottom",
+                    "text": {
+                        "content": "Copyright by someone",
+                        "extendClass": "rh-image-block-extend__caption__text"
+                    }
+                }
+            }
+        }
+    ]
+}

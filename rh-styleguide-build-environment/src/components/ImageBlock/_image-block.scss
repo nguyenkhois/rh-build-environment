@@ -1,0 +1,85 @@
+@import '../../styles/breakpoints';
+@import './image-block.settings.scss';
+
+.rh-image-block {
+    /* Positionering */
+    position: relative;
+
+    /* Box-modell/beteende */
+    width: $image-block--width;
+    min-width: $image-block--min-width;
+    max-width: $image-block--max-width;
+    margin: $image-block--margin;
+
+    display: block;
+    overflow: hidden;
+
+    &__image {
+        /* Box-modell/beteende */
+        min-height: $image-block__image--min-height;
+        max-height: $image-block__image--max-height;
+        width: $image-block__image--width;
+        
+        display: block;
+    }
+}
+
+
+/* Extend classes for using caption-mini component */
+.rh-image-block-extend {
+    &__caption {
+        /* Visuellt */
+        background-color: $image-block-extend__caption--background-color;
+
+        /* Typografi */
+        line-height: $image-block-extend__caption--line-height;
+
+        @include medium {
+            line-height: $image-block-extend__caption--line-height-medium;
+        }
+
+        @include large {
+            line-height: $image-block-extend__caption--line-height-large;
+        }
+
+        &__text {
+            /* Typografi */
+            color: $image-block-extend__text--color;
+            font-size: $image-block-extend__text--font-size;
+
+            @include medium {
+                font-size: $image-block-extend__text--font-size-medium;
+            }
+
+            @include large {
+                font-size: $image-block-extend__text--font-size-large;
+            }
+        }
+
+        /* Caption's position */
+        &--over-image--right-bottom {
+            /* Positionering */
+            right: 0;
+        }
+    }
+}
+
+
+// Using for testing
+.rh-image-block__space--extend {
+    margin: .5em;
+}
+.rh-image-block__container--extend {
+    width: 100%;
+    min-width: 18em;
+    max-width: 90em; //1440px
+
+    margin: auto;
+    padding: 0 .5em;
+
+    // Testing
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

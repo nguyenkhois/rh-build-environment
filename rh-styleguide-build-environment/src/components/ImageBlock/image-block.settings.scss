@@ -1,0 +1,18 @@
+$image-block--width: 100%;
+$image-block--min-width: 18em; // 20em - 320px - iPhone 5/SE
+$image-block--max-width: 26em; // 416px
+$image-block--margin: 0;
+
+$image-block__image--min-height: 13.75em; //220px
+$image-block__image--max-height: 20.5em; //328px
+$image-block__image--width: 100%;
+
+$image-block-extend__caption--background-color: #f4f4f4;
+$image-block-extend__caption--line-height: 0.875em; // 14px
+$image-block-extend__caption--line-height-medium: 1em; // 16px
+$image-block-extend__caption--line-height-large: 1.0625em; // 17px
+
+$image-block-extend__text--color: #000000;
+$image-block-extend__text--font-size: 0.75em; // 12px
+$image-block-extend__text--font-size-medium: 0.875em; // 14px
+$image-block-extend__text--font-size-large: 0.9375em; // 15px

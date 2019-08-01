@@ -4,18 +4,18 @@ import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import ScreenInfo from '../ScreenInfo/ScreenInfo';
 
 /* Component including */
-import './_feedback-form.scss';
-import { context } from './feedback-form.config.json';
-import hbsSource from './feedback-form.hbs';
+import './_image-block.scss';
+import { context } from './image-block.config.json';
+import hbsSource from './image-block.hbs';
 
-const placeholderClassName = "rh-feedback-form__container";
-const componentClassName = "rh-feedback-form";
+const placeholderClassName = "rh-image-block__container--extend";
+const componentClassName = "rh-image-block";
 
 /* Testing */
-import './test/feedback-form.css';
+//import './test/image-block.css';
 /* End of testing */
 
-export default function FeedbackFormStyleguide() {
+export default function ImageBlock() {
     const hbsTemplate = Handlebars.compile(hbsSource);
 
     useEffect(() => { }, []);
@@ -29,7 +29,7 @@ export default function FeedbackFormStyleguide() {
                 />
             </ErrorBoundary>
             
-            <div className="rh-feedback-form__container" dangerouslySetInnerHTML={{ __html: hbsTemplate(context) }} />
+            <div className={placeholderClassName} dangerouslySetInnerHTML={{ __html: hbsTemplate(context) }} />
         </React.Fragment>
     );
 }
