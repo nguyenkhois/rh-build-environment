@@ -16,7 +16,7 @@ sass.compiler = require('node-sass');
 
 // Get configs from a JSON file
 const { localServer, codeBase, development, production } = require('./devenv.config.json');
-const { cssDevPath, scssDevPath, jsDevPath, jsDevEntryPoints } = development;
+const { cssDevPath, scssDevPath, jsDevPath } = development;
 const { jsPublicPath, cssPublicPath, bundleName } = production;
 
 // Dev server
@@ -33,13 +33,13 @@ function devServer(cb) {
         }
     });
 
-    watch(codeBase).on('change', browserSync.reload); // Watching *.php files for reloading
-    watch(scssDevPath, series(compile_scss)); // Watching SCSS files for CSS injecting
+    watch(codeBase).on('change', browserSync.reload); // Watching files at "codeBase" for reloading
+    watch(scssDevPath, series(scssCompilation)); // Watching SCSS files for CSS injecting
 
     cb();
 }
 
-function compile_scss(cb) {
+function scssCompilation(cb) {
     src(scssDevPath)
         .pipe(sass())
         .pipe(dest(cssDevPath))
@@ -108,8 +108,8 @@ function jsBuild(cb) {
 }
 
 /**
- * All JS entries will be bundled into the file bundle.min.js
- * The bundle should be compatible with IE11, Chrome, Firefox,...
+ * All JS entries will be bundled and minified into a file *.min.js
+ * The minified JS should be compatible with IE11, Chrome, Firefox,...
  * Developer can using ES6 and import/ export syntax. It will be easier to share and reuse JS code.
  * It compiles ES6 to ES5.
  * @param {callback} cb
@@ -157,6 +157,21 @@ function jsMinify(cb) {
     cb();
 }
 
+function help(cb) {
+    const helpInformation = `
+        USAGE:
+        \n\t\x1b[36mgulp \x1b[0m\n\tStarts the local server
+        \n\t\x1b[36mgulp build\x1b[0m\n\tBundles CSS and JS for production
+        \n\t\x1b[36mgulp minify\x1b[0m\n\tMinify CSS and JS for production
+        \n\t\x1b[36mgulp help\x1b[0m\n\tView the help information
+    `;
+
+    console.log(helpInformation);
+
+    cb();
+}
+
 exports.default = devServer;
 exports.build = series(scssBuild, jsBuild);
 exports.minify = series(scssBuild, jsMinify);
+exports.help = help;

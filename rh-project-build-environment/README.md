@@ -1,4 +1,4 @@
-# The front-end development environment - DevEnv
+# The project build environment
 The simple front-end development environment that is using together with back-end code (example: PHP, .NET,...).
 
 The project template is using a specific structure that's why it's only using for RH organization. You should __NOT__ using this repo if you don't know what you need.
@@ -13,7 +13,7 @@ The project template is using a specific structure that's why it's only using fo
 * Build the minification production for both CSS and JS.
 * JavaScript:
    * Support ES6 and `import/ export` syntax for using on IE11.
-   * All entry points is bundled into a file and it should work on many web browsers (IE11, Chrome, Safari, Firefox, ...)
+   * All entry points is bundled into a JS file and it should work on many web browsers (IE11, Chrome, Safari, Firefox, ...)
 * Configuration for the local front-end web server is simple and flexible.
 
 ## System requirements
@@ -39,8 +39,8 @@ The project template is using a specific structure that's why it's only using fo
 4. Start the local back-end web server (Ex: WAMP).
 5. The local front-end web server:
    * Run `$ gulp` to start the server at `http://localhost:3000/`.
-   * Run `$ gulp build` to bundle your code (SCSS, JS).
+   * Run `$ gulp build` to bundle your code (CSS, JS).
+   * Run `$ gulp minify` to minify your code (CSS, JS).
+   * Run `$ gulp help` to view the help information.
 
-__TIPS__! You can also using the commands:
-* `npm start`
-* `npm run build`
+Say goodbye to F5 and enjoy your life! (^_^)
