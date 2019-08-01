@@ -1,5 +1,5 @@
 {
-    "name": "devenv",
+    "name": "project-devenv",
     "version": "1.0.0-alpha.1.0.0",
     "description": "The config file is using for the local front-end development environment",
     "main": "",
@@ -21,6 +21,7 @@
         "browser-sync": "^2.26.7",
         "browserify": "^16.3.0",
         "eslint": "^6.0.1",
+        "globby": "^10.0.1",
         "gulp": "^4.0.2",
         "gulp-concat": "^2.6.1",
         "gulp-minify": "^3.1.0",
