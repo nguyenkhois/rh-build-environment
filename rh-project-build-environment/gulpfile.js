@@ -22,9 +22,9 @@ const { jsPublicPath, cssPublicPath, bundleName } = production;
 // Dev server
 function devServer(cb) {
     browserSync.init({
-        proxy: localServer,
+        proxy: localServer.proxy, // Backend server
         browser: "chrome",
-        port: 3000,
+        port: localServer.port, // Frontend server
         open: false,
         notify: false,
         watchOptions: {

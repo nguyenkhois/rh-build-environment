@@ -1,7 +1,10 @@
 {
     "name": "project-devenv",
     "description": "The config file is using for the local front-end development environment",
-    "localServer": "test.local",
+    "localServer": {
+        "proxy": "test.local",
+        "port": 3030
+    },
     "codeBase": [
         "web/app/themes/regionhalland/resources/views/**/*.php"
     ],
