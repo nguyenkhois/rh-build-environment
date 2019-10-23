@@ -7,13 +7,13 @@ The project template is using a specific structure that's why it's only using fo
 * Whenever you make a change in your code:
    * Styling - [SASS + CSS injecting](https://www.browsersync.io/docs/gulp#gulp-sass-css):
       * SCSS is compiled to CSS.
-      * Hot Module Replacement (HMR) without reloading the page.
-   * Code (Ex: *.php):
-      * Automatic reloading the page.
-* Build the minification production for both CSS and JS.
+      * Hot Module Replacement (HMR) is activated. CSS is injected into your site without reloading whole page.
+   * Code (Ex: *.php, *.js):
+      * Automatic reloading whole page.
+* Build the minification production (both CSS and JS).
 * JavaScript:
-   * Support ES6 and `import/ export` syntax for using on IE11.
-   * All entry points is bundled into a JS file and it should work on many web browsers (IE11, Chrome, Safari, Firefox, ...)
+   * Support ES6 and `import/ export` syntax for using in IE11.
+   * All entry points is bundled into a JS file and it should work in many web browsers (IE11, Chrome, Safari, Firefox, ...)
 * Configuration for the local front-end web server is simple and flexible.
 
 ## System requirements
@@ -26,7 +26,6 @@ The project template is using a specific structure that's why it's only using fo
 |Location|Description|
 |---|---|
 |`/web`|Your website's location (Ex: PHP code).|
-|`/web/app`|Back-end code|
 |`/web/_dev`|Your front-end code that is only using for the development.|
 |`/web/include/scripts`|JS files will be compiled into the directory for the production|
 |`/web/include/styles`|SCSS files will be compiled to CSS into the directory for the production|
@@ -38,7 +37,7 @@ The project template is using a specific structure that's why it's only using fo
 3. Change the config file `/devenv.config.json` for your reason.
 4. Start the local back-end web server (Ex: WAMP).
 5. The local front-end web server:
-   * Run `$ gulp` to start the server at `http://localhost:3000/`.
+   * Run `$ gulp` to start the server at `http://localhost:3030/`.
    * Run `$ gulp build` to bundle your code (CSS, JS).
    * Run `$ gulp minify` to minify your code (CSS, JS).
    * Run `$ gulp help` to view the help information.
