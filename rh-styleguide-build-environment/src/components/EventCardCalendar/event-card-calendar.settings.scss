@@ -1,0 +1,40 @@
+$event-card-calendar--width: 100%;
+$event-card-calendar--min-width: 18em; //320px - iPhone 5
+$event-card-calendar--max-width: 90em; //1440px; design 61em; //976px
+$event-card-calendar--margin: 0 auto;
+$event-card-calendar--padding: 4em .5em;
+$event-card-calendar--padding-medium: 4em;
+$event-card-calendar--padding-large: false;
+
+$event-card-calendar__item--width: 100%; //100%
+$event-card-calendar__item--min-height: 7.5em; //120px
+$event-card-calendar__item--border: 1px solid #e4e4e4;
+$event-card-calendar__item--margin: 0 0 .8em 0;
+$event-card-calendar__item--background-color: #ffffff;
+
+$event-card-calendar__date--background-color: #61A2D8;
+$event-card-calendar__date--width: 7.693%;
+$event-card-calendar__date--min-width: 3.9375em; //63px
+$event-card-calendar__date--max-width: 5.5em; //88px
+$event-card-calendar__date--align-content-vertical: center; //(or flex-start, flex-end)
+$event-card-calendar__date--align-content-horizontal: center; //(or flex-start, flex-end)
+
+$event-card-calendar__date-day--line-height: 1;
+$event-card-calendar__date-day--font-size: 1.25em; //20px
+$event-card-calendar__date-day--font-weight: bold;
+$event-card-calendar__date-day--color: #ffffff;
+
+$event-card-calendar__date-month--line-height: 1;
+$event-card-calendar__date-month--font-size: 0.9375em; //15px
+$event-card-calendar__date-month--font-weight: 100;
+$event-card-calendar__date-month--color: #ffffff;
+
+$event-card-calendar__description-place--margin: 0 0 .6em 0;
+$event-card-calendar__description--padding: 0.8125em; //13px
+$event-card-calendar__description-title--font-size: 1em; //0.9375em; //16px
+$event-card-calendar__description-title--font-size--medium: 1.125em; //18px
+$event-card-calendar__description-title--font-size--large: 1.25em; //20px
+$event-card-calendar__description-title--font-weight: bold;
+
+$event-card-calendar__labels--margin-top: .4em;
+$event-card-calendar__labels--background-color: #D0E3F3;

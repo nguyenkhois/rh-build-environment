@@ -1,12 +1,14 @@
 .app {
     &__header {
-        margin: 1em;
+        margin: 1em .8em;
 
-        h1 {
-            color: #135c86;
+        &-icon {
+            height: 32px;
+            margin: 5px 10px;
         }
 
         &__menu {
+            margin: 10px 0;
             a {
                 text-decoration: none;
                 color: #1a76ac;

@@ -1,6 +1,3 @@
-@import '../../styles/breakpoints';
-@import './image-block.settings.scss';
-
 .rh-image-block {
     /* Positionering */
     position: relative;
@@ -19,14 +16,13 @@
         min-height: $image-block__image--min-height;
         max-height: $image-block__image--max-height;
         width: $image-block__image--width;
-        
+
         display: block;
     }
 }
 
-
 /* Extend classes for using caption-mini component */
-.rh-image-block-extend {
+.rh-image-block {
     &__caption {
         /* Visuellt */
         background-color: $image-block-extend__caption--background-color;
@@ -54,6 +50,14 @@
             @include large {
                 font-size: $image-block-extend__text--font-size-large;
             }
+
+            &--center {
+                text-align: center;
+            }
+
+            &--right {
+                text-align: right;
+            }
         }
 
         /* Caption's position */
@@ -64,12 +68,11 @@
     }
 }
 
-
 // Using for testing
-.rh-image-block__space--extend {
+.rh-image-block__space-extend {
     margin: .5em;
 }
-.rh-image-block__container--extend {
+.app__image-block__placeholder {
     width: 100%;
     min-width: 18em;
     max-width: 90em; //1440px

@@ -1,13 +1,16 @@
 .app__header {
-  margin: 1em; }
-  .app__header h1 {
-    color: #135c86; }
-  .app__header__menu a {
-    text-decoration: none;
-    color: #1a76ac;
-    line-height: 1.5em; }
-  .app__header__menu a:hover {
-    text-decoration: underline; }
+  margin: 1em .8em; }
+  .app__header-icon {
+    height: 32px;
+    margin: 5px 10px; }
+  .app__header__menu {
+    margin: 10px 0; }
+    .app__header__menu a {
+      text-decoration: none;
+      color: #1a76ac;
+      line-height: 1.5em; }
+    .app__header__menu a:hover {
+      text-decoration: underline; }
 
 .app__detail-info {
   margin: 2em 1em; }

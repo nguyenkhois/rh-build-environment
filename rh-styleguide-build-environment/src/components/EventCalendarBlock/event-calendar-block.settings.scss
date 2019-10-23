@@ -1,0 +1,18 @@
+/* Color */
+$event-calendar-block--background-color: false; // Ex: #f9f9f9
+
+/* General */
+$event-calendar-block--width: 100%;
+$event-calendar-block--min-width: 18em; // 20em - 320px - iPhone 5/SE
+$event-calendar-block--max-width: 26em; // 416px
+$event-calendar-block--margin: 0;
+
+/* Header */
+$event-calendar-block__header__hero-image--min-height: 13.75em; //220px
+$event-calendar-block__header__hero-image--max-height: 20.5em; //328px
+$event-calendar-block__header__hero-image--width: 100%;
+
+/* Body */
+$event-calendar-block__body__title--font-size: 1.125em; //18px
+$event-calendar-block__body__title--margin: 1.25em 0 0.3125em 0;
+$event-calendar-block__body__title--font-weight: bold;

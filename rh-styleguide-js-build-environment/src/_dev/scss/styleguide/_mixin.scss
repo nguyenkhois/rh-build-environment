@@ -1,0 +1,57 @@
+@mixin create-container-py($name, $padding-y: 0, $offset-top: 0, $offset-bottom: 0) {
+    @if $name {
+        @at-root .#{$name} {
+            padding-top: $padding-y;
+            padding-bottom: $padding-y;
+
+            @include medium {
+                padding-top: $padding-y - $offset-top;
+                padding-bottom: $padding-y - $offset-bottom;
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin create-container-px($name, $offset-left: 0, $offset-right: 0) {
+    @if $name {
+        @at-root .#{$name} {
+            padding-left: $page__container--padding-x;
+            padding-right: $page__container--padding-x;
+
+            @include small {
+                padding-left: $page__container-small--padding-x;
+                padding-right: $page__container-small--padding-x;
+            }
+
+            @include medium {
+                padding-left: $page__container-medium--padding-x - $offset-left;
+                padding-right: $page__container-medium--padding-x - $offset-right;
+            }
+
+            @include large {
+                padding-left: $page__container-large--padding-x - $offset-left;
+                padding-right: $page__container-large--padding-x -$offset-right;
+            }
+
+            @include xlarge {
+                padding-left: $page__container-xlarge--padding-x - $offset-left;
+                padding-right: $page__container-xlarge--padding-x -$offset-right;
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin create-container-p($name, $container-py, $container-px) {
+    @if $name and $container-py and $container-px {
+        @at-root .#{$name} {
+            @extend .#{$container-py};
+            @extend .#{$container-px};
+
+            @content;
+        }
+    }
+}

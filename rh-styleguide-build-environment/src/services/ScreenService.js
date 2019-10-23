@@ -54,6 +54,6 @@ const ScreenService = {
     ptToEm: calculatePtToEm,
     ptToPx: calculatePtToPx,
     devicePixelRatio: devicePixelRatio
-}
+};
 
 export default ScreenService;

@@ -1,0 +1,141 @@
+.rh-feedback-form {
+    /* Box-modell/beteende */
+    width: $feedback-form--width;
+    min-width: $feedback-form--min-width;
+    max-width: $feedback-form--max-width;
+
+    &__header {
+        &__title {
+            /* Typografi */
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+    }
+
+    &__body {
+        /* Box-modell/beteende */
+        padding: $feedback-form__body--padding;
+        margin: $feedback-form__body--margin;
+
+        /* Visuellt */
+        border-radius: $feedback-form__body--border-radius;
+        background-color: $feedback-form__body--background-color;
+
+        &__label {
+            &-message {
+                /* Box-modell/beteende */
+                margin: 1em 0 0.3125em 0;
+
+                /* Typografi */
+                line-height: 1.4em;
+                font-size: .9375em;
+            }
+
+            &-email {
+                /* Typografi */
+                font-size: 0.9375em; // 15px
+                font-weight: bold;
+            }
+        }
+
+        &__message {
+            /* Box-modell/beteende */
+            resize: none;
+        }
+
+        &__description {
+            /* Box-modell/beteende */
+            margin: $feedback-form__body__description--margin;
+
+            &-text {
+                /* Box-modell/beteende */
+                margin-bottom: 1.5em;
+            }
+        }
+
+        &__link-privacy {
+
+            /* Typografi */
+            @if $feedback-form__color-link--normal {
+                color: $feedback-form__color-link--normal;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &__input {
+            /* Box-modell/beteende */
+            height: 3.215em;
+        }
+    }
+}
+
+.rh-feedback-form__body__button-send {
+
+    /* Box-modell/beteende */
+    @if $feedback-form__body__button-send--margin {
+        margin: $feedback-form__body__button-send--margin;
+    }
+
+    @if $feedback-form__body__button-send--padding {
+        padding: $feedback-form__body__button-send--padding;
+    }
+
+    @if $feedback-form__body__button-send--height {
+        height: $feedback-form__body__button-send--height;
+    }
+
+    /* Visuellt */
+    @if $feedback-form__body__button-send--background-color {
+        background-color: $feedback-form__body__button-send--background-color;
+    }
+
+    /* Blandat/övrigt */
+    @if $feedback-form__body__button-send--cursor {
+        cursor: $feedback-form__body__button-send--cursor;
+    }
+}
+
+// Extend
+.app__feedback-form__placeholder {
+    width: 100%;
+    padding: 0 .5em;
+}
+
+.rh-feedback-form__body__button-send-extend {
+
+    /* Box-modell/beteende */
+    @if $feedback-form__body__button-send--margin {
+        margin: $feedback-form__body__button-send--margin;
+    }
+
+    @if $feedback-form__body__button-send--padding {
+        padding: $feedback-form__body__button-send--padding !important;
+    }
+
+    @if $feedback-form__body__button-send--height {
+        height: $feedback-form__body__button-send--height;
+    }
+        @include medium {
+            @if $feedback-form__body__button-send--height-medium {
+                height: $feedback-form__body__button-send--height-medium;
+            }
+        }
+        @include large {
+            @if $feedback-form__body__button-send--height-large {
+                height: $feedback-form__body__button-send--height-large;
+            }
+        }
+
+    /* Visuellt */
+    @if $feedback-form__body__button-send--background-color {
+        background-color: $feedback-form__body__button-send--background-color !important;
+    }
+
+    /* Blandat/övrigt */
+    @if $feedback-form__body__button-send--cursor {
+        cursor: $feedback-form__body__button-send--cursor;
+    }
+}

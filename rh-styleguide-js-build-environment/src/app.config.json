@@ -4,5 +4,9 @@
         "bundleName": "bundle",
         "jsPublicPath": "scripts",
         "cssPublicPath": "styles"
+    },
+    "development": {
+        "jsDevLocation": "/_dev/js/",
+        "cssDevLocation": "/_dev/css/"
     }
 }

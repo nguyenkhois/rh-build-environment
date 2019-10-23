@@ -1,0 +1,36 @@
+/* Caption mini */
+// Position
+$caption-mini--position: absolute;
+
+$caption-mini--top: false;
+$caption-mini--right: false;
+$caption-mini--bottom: 0;
+$caption-mini--left: false;
+
+/* Using ONLY one at a time (--has-triangle OR --square) */
+// Using only for --has-triangle
+$caption-mini--triangle--border-top: 2.5em solid transparent;
+$caption-mini--triangle--border-right: 1.5625em solid transparent;
+$caption-mini--triangle--border-bottom: 2.5em solid #000000; //40px
+$caption-mini--triangle--border-bottom--medium: 2.8125em solid #000000; // 45px
+$caption-mini--triangle--border-left: 0 solid #000000;
+
+// Using only for --square
+$caption-mini--square--padding: auto;
+$caption-mini--square--width: auto;
+$caption-mini--square--background-color: #000000;
+$caption-mini--square--border-radius: 0 0 0 0;
+
+// Using only for --under-image
+$caption-mini--under-image--padding: auto;
+$caption-mini--under-image--width: auto;
+$caption-mini--under-image--background-color: #000000;
+$caption-mini--under-image--border-radius: 0 0 0 0;
+
+// Text format
+$caption-mini-text--font-size: 1.125em; //18px
+$caption-mini-text--font-size--medium: 1.25em; //20px
+$caption-mini-text--margin: 0 .625em;
+$caption-mini-text--font-weight: 500;
+$caption-mini-text--line-height: 2.25em;
+$caption-mini-text--color: #ffffff;

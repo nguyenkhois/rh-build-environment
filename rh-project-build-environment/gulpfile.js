@@ -61,6 +61,34 @@ function scssBuild(cb) {
 
     src(scssDevPath)
         .pipe(sourcemaps.init())
+        .pipe(sass()
+            //sass.sync({ outputStyle: 'compressed' })
+                //.on('error', sass.logError)
+        )
+        .pipe(concat(cssFullFilename))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(cssPublicPath))
+        .on('error', (error) => {
+            isSuccess = false;
+            console.error(error);
+        })
+        .on('end', () => {
+            if (isSuccess) {
+                console.log(`\n\x1b[32m√ Done!\x1b[0m Build successfully SCSS files in \x1b[90m${cssPublicPath}\x1b[0m.`);
+            } else {
+                console.error('\n\x1b[31m✗ Error!\x1b[0m Can not build SCSS files.');
+            }
+        });
+
+    cb();
+}
+
+function scssMinify(cb) {
+    let isSuccess = true;
+    const cssFullFilename = `${bundleName}.min.css`;
+
+    src(scssDevPath)
+        .pipe(sourcemaps.init())
         .pipe(
             sass.sync({ outputStyle: 'compressed' })
                 .on('error', sass.logError)
@@ -158,12 +186,11 @@ function jsMinify(cb) {
 }
 
 function help(cb) {
-    const helpInformation = `
-        USAGE:
-        \n\t\x1b[36mgulp \x1b[0m\n\tStarts the local server
-        \n\t\x1b[36mgulp build\x1b[0m\n\tBundles CSS and JS for production
-        \n\t\x1b[36mgulp minify\x1b[0m\n\tMinify CSS and JS for production
-        \n\t\x1b[36mgulp help\x1b[0m\n\tView the help information
+    const helpInformation = `USAGE:
+        \n\t\x1b[36mgulp \x1b[0m\n\t   Starts the local server
+        \n\t\x1b[36mgulp build\x1b[0m\n\t   Bundles CSS and JS for production
+        \n\t\x1b[36mgulp minify\x1b[0m\n\t   Minify CSS and JS for production
+        \n\t\x1b[36mgulp help\x1b[0m\n\t   View the help information
     `;
 
     console.log(helpInformation);
@@ -173,5 +200,5 @@ function help(cb) {
 
 exports.default = devServer;
 exports.build = series(scssBuild, jsBuild);
-exports.minify = series(scssBuild, jsMinify);
+exports.minify = series(scssMinify, jsMinify);
 exports.help = help;

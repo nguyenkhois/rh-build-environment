@@ -1,0 +1,44 @@
+
+.rh-round-button {
+
+  /* Visuellt */
+  background: $base3;
+  border: 1px solid $color-secondary;
+  border-radius: 50%;
+  padding: em(6);
+
+  /* Typografi */
+  color: $white;
+  font-family: "feather" !important;
+  font-size: $h4-small;
+  text-decoration: none;
+
+  &--small {
+    padding: em(4);
+  }
+
+  &:hover,&:active {
+
+    /* Visuellt */
+    background-color: $white;
+
+    /* Typografi */
+    color: $color-secondary;
+
+  }
+
+  &--vuxhalland {
+    /* Visuellt */
+    background: $vuxhalland;
+    border: 1px solid $vuxhalland;
+
+    /* Typografi */
+    color: black;
+  }
+
+  &--vuxhalland:hover,&:active {
+    /* Typografi */
+    color: black;
+  }
+
+}

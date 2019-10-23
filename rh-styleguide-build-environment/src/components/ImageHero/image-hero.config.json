@@ -1,0 +1,11 @@
+{
+	"title": "Herobild",
+    "status": "wip",
+	"context": {
+        "imageUrl": "https://www.vuxhalland.se/app/uploads/2019/05/hero-g-samtal.jpg",
+		"captionData": {
+            "text": "Ta steget mot ett nytt yrke",
+            "extendClass": "rh-hero-extend__caption"
+        }
+	}		
+}

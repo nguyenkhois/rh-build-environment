@@ -1,0 +1,63 @@
+.rh-caption-mini {
+    /* Positionering */
+    position: $caption-mini--position;
+    @if $caption-mini--top {
+        top: $caption-mini--top;
+    }
+    @if $caption-mini--right {
+        right: $caption-mini--right;
+    }
+    @if $caption-mini--bottom {
+        bottom: $caption-mini--bottom;
+    }
+    @if $caption-mini--left {
+        left: $caption-mini--left;
+    }
+
+    // Använd en av dem åt gången (--has-triangle ELLER --square)
+    &--has-triangle {
+        /* Box modell/beteende */
+        height: 0;
+
+        /* Visuellt */
+        border-top: $caption-mini--triangle--border-top;
+        border-right: $caption-mini--triangle--border-right;
+        border-bottom: $caption-mini--triangle--border-bottom;
+        border-left: $caption-mini--triangle--border-left;
+
+        @include medium {
+            border-bottom: $caption-mini--triangle--border-bottom--medium;
+        }
+    }
+
+    &--square {
+        background-color: $caption-mini--square--background-color;
+        border-radius: $caption-mini--square--border-radius;
+        padding: $caption-mini--square--padding;
+        width: $caption-mini--square--width;
+    }
+
+    &--under-image {
+        background-color: $caption-mini--under-image--background-color;
+        border-radius: $caption-mini--under-image--border-radius;
+        padding: $caption-mini--under-image--padding;
+        width: $caption-mini--under-image--width;
+
+        position: static; // IE11 - Reset position
+    }
+
+    &-text {
+        /* Box modell/beteende */
+        margin: $caption-mini-text--margin;
+
+        /* Typografi */
+        font-size: $caption-mini-text--font-size;
+        font-weight: $caption-mini-text--font-weight;
+        line-height: $caption-mini-text--line-height;
+        color: $caption-mini-text--color;
+
+        @include medium {
+            font-size: $caption-mini-text--font-size--medium;
+        }
+    }
+}

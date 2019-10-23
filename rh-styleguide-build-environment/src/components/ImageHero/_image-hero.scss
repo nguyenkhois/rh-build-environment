@@ -1,0 +1,107 @@
+/* Needed component(s)
+@import '../../Atoms/caption-hero/caption-hero';
+*/
+@import '../../styles/functions';
+@import '../../styles/settings-main';
+@import '../../styles/breakpoints';
+
+
+.rh-caption-hero{
+	/* Positionering */
+	position: absolute;
+	bottom: em(40);
+	left: em(16);
+
+	/* Box-modell/beteende */
+	max-width: 344px;
+	margin-right: em(15);
+	padding: em(15);
+
+	/* Visuellt */
+	background-color: $black;
+
+	/* Typografi */
+	color: $white;
+	font-size: $h2-medium;
+
+	&--secondary {
+		/* Visuellt */
+		background-color: $white;
+
+		/* Typografi */
+		color: $black;
+	}
+
+	&--rounded {
+		border-radius: 0.4ex;
+	}
+
+	@include medium {
+		/* Positionering */
+		bottom: em(16);
+		left: em(40);
+
+		/* Box-modell/beteende */
+		max-width: 530px;
+	}
+	@include large {
+		/* Positionering */
+		bottom: em(25);
+		left: em(60);
+
+		/* Typografi */
+		font-size: $h2-medium;
+	}
+}
+
+.rh-hero {
+    /* Positionering */
+    position: relative;
+
+    /* Box-modell/beteende */
+    display: block;
+    //height: 400px;
+    width: 100%;
+    max-width: 90.0625em; //1441px;
+    min-width: 18em; //288px - iPhone 5S (320px - 20em)
+    overflow: hidden;
+
+    @include medium {
+        /* Box-modell/beteende */
+        max-height: 18.75em; //300px;
+    }
+
+    @include large {
+        /* Box-modell/beteende */
+        max-height: 26.25em; //420px;
+    }
+
+    &__image-container {
+        max-height: 25em; //400px
+        width: 100%;
+    }
+
+    .rh-image-hero {
+        /* Box-modell/beteende */
+        //height: 100%;
+        display: block;
+
+        @include medium {
+            /* Box-modell/beteende */
+            //height: auto;
+            width: 100%;
+        }
+    }
+}
+
+// Extend CSS class for using caption component
+.app__image-hero__placeholder {
+    width: 100%;
+}
+
+.rh-hero {
+    &__caption {
+        background-color: #f0f0f0 !important;
+        color: #000000 !important;
+    }
+}

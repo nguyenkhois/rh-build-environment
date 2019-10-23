@@ -1,0 +1,13 @@
+{
+	"title": "Navigation block",
+    "status": "wip",
+    "version": "1.0.0",
+	"context": {
+        "link": {
+            "title": "Förklara vart länken leder",
+            "toPage": "",
+            "text": "Link to subpage"
+        },
+        "description": "This text describes the content that can be found on the subpage"
+    }		
+}

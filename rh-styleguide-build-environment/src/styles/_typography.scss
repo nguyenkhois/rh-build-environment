@@ -1,0 +1,165 @@
+.rh-responsive-headline {
+	font-size: $h3-medium;
+	@include medium {
+		font-size: $h1-medium;
+	}
+
+	@include large {
+		font-size: $h1-medium;
+	}
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black;
+  font-weight: bold;
+  line-height: $heading-line-height-small;
+}
+
+
+
+p {
+	margin-bottom: em(8);
+	color: $black;
+	font-size: $p-medium;
+	line-height: $line-height-medium;
+	
+	@include medium {
+	  	font-size: $p-medium;	
+	  	line-height: $line-height-medium;
+	}
+	@include large {
+		font-size: $p-large;
+		line-height: $line-height-large;	
+	}
+
+}
+
+/*
+a.rh-link{
+    display: inline-block;
+    cursor: pointer;
+    font-size: inherit;
+    text-decoration: underline;
+  	color: $color-primary;
+
+    &:hover,
+    &:active {
+      color: $base1-dark; 
+      text-decoration: none;  
+    }
+
+    &:visited {
+      color: $link-visited;
+    }
+
+    &--external{
+    	&:after{
+       		display: inline-block;
+        	margin-left: em(8);
+        	font-family: "feather"; 
+        	content: "\e869";
+        }
+    }
+    
+    &--container{
+        font-weight:bold;
+        text-decoration: none;
+    	&:before{
+       		display: inline-block;
+       		margin-right: em(8);
+        	font-family: "feather"; 
+        	content: "\e872";
+        }
+    }    
+  }
+*/
+
+.rh-ingress{
+	font-size: em(18);
+	line-height: em(25);
+	color: $black;
+
+	@include medium {
+		font-size: em(18);
+		line-height: em(25);
+	}
+	@include large {
+		font-size: em(20);
+		line-height: em(28);
+	}
+}
+
+@mixin headline($size, $line-height: $heading-line-height-medium-large){
+	font-size: $size;	
+	line-height: $line-height;
+}
+
+h1{
+
+	font-size: $h1-medium;
+
+	@include medium {
+		@include headline($h1-medium);
+	}
+	@include large {
+		@include headline($h1-large);
+	}
+}
+h2{
+	font-size: $h2-medium;
+
+	@include medium {
+		@include headline($h2-medium);
+	}
+	@include large {
+		@include headline($h2-large);
+	}
+}
+h3{
+	font-size: $h3-medium;
+
+	@include medium {
+		@include headline($h3-medium);
+	}
+	@include large {
+		@include headline($h3-large);
+	}
+}
+h4{
+
+	font-size: $h4-medium;
+
+	@include medium {
+		@include headline($h4-medium);
+	}
+	@include large {
+		@include headline($h4-large);
+	}
+}
+h5{
+
+	font-size: $h5-medium;
+
+	@include medium {
+		@include headline($h5-medium);
+	}
+	@include large {
+		@include headline($h5-large);
+	}
+}
+h6{
+	font-size: $h6-medium;
+
+	@include medium {
+		@include headline($h6-medium);
+	}
+	@include large {
+		@include headline($h6-large);
+	}
+}

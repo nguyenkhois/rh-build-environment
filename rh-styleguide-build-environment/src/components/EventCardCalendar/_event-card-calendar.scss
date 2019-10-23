@@ -1,0 +1,147 @@
+.rh-event-card-calendar {
+    /* Box-modell/beteende */
+    display: flex;
+    flex-direction: column;
+
+    width: $event-card-calendar--width;
+    min-width: $event-card-calendar--min-width;
+    max-width: $event-card-calendar--max-width;
+    margin: $event-card-calendar--margin;
+    padding: $event-card-calendar--padding;
+
+    @include large {
+        flex-direction: row; //column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    // Using only for regionhalland.se
+    @if $event-card-calendar--padding-medium {
+        @include medium {
+            padding: $event-card-calendar--padding-medium;
+        }
+    }
+
+    @if $event-card-calendar--padding-large {
+        @include large {
+            padding: $event-card-calendar--padding-large;
+        }
+    }
+
+	&__item {
+        /* Box-modell/beteende */
+        display: flex;
+        flex-direction: row;
+
+        min-height: $event-card-calendar__item--min-height;
+        width: $event-card-calendar__item--width;
+        border: $event-card-calendar__item--border;
+        margin: $event-card-calendar__item--margin;
+        line-height: 1.3;
+        
+        background-color: $event-card-calendar__item--background-color;
+
+        @include large {
+            width: 49%;
+        }
+    }
+    
+    &__date {
+        /* Box-modell/beteende */
+        display: flex;
+        flex-direction: column;
+        justify-content: $event-card-calendar__date--align-content-vertical;
+        align-items: $event-card-calendar__date--align-content-horizontal;
+
+        width: $event-card-calendar__date--width;
+        min-width: $event-card-calendar__date--min-width;
+        max-width: $event-card-calendar__date--max-width;
+        
+        /* Visuellt */
+        background-color: $event-card-calendar__date--background-color;
+
+        &-day {
+            /* Box-modell/beteende */
+            margin: 0;
+            line-height: $event-card-calendar__date-day--line-height;
+
+            /* Typografi */
+            font-size: $event-card-calendar__date-day--font-size;
+            font-weight: $event-card-calendar__date-day--font-weight;
+            color: $event-card-calendar__date-day--color;
+        }
+
+        &-month {
+            /* Box-modell/beteende */
+            margin: 0;
+            line-height: $event-card-calendar__date-month--line-height;
+
+            /* Typografi */
+            font-size: $event-card-calendar__date-month--font-size; //15px
+            font-weight: $event-card-calendar__date-month--font-weight;
+            color: $event-card-calendar__date-month--color;
+        }
+    }
+
+    &__description {
+        /* Box-modell/beteende */
+        width: 100%;
+        padding: $event-card-calendar__description--padding;
+
+        &-title {
+            /* Typografi */
+            font-size: $event-card-calendar__description-title--font-size; //15px
+            font-weight: $event-card-calendar__description-title--font-weight;
+
+            @if $event-card-calendar__description-title--font-size--medium {
+                @include medium {
+                    font-size: $event-card-calendar__description-title--font-size--medium;
+                }
+            }
+
+            @if $event-card-calendar__description-title--font-size--large {
+                @include large {
+                    font-size: $event-card-calendar__description-title--font-size--large;
+                }
+            }
+        }
+
+        &-time {
+            &:before {
+                /* Typografi */
+                font-family: "feather";
+    
+                /* Blandat/övrigt */
+                content: "\e84d";
+            }
+        }
+
+        &-place {
+            /* Box-modell/beteende */
+            margin: $event-card-calendar__description-place--margin;
+
+            &:before {
+                /* Typografi */
+                font-family: "feather";
+    
+                /* Blandat/övrigt */
+                content: "\e88e";
+            }
+        }
+    }
+    
+    // Customize when reusing the "labels" component
+    &__labels {
+        /* Box-modell/beteende */
+        margin-top: $event-card-calendar__labels--margin-top;
+
+        /* Visuellt */
+        background-color: $event-card-calendar__labels--background-color;
+    }
+}
+
+
+// Using only for demo
+.app__event-card-calendar__placeholder {
+    background-color: #e4e4e4;
+}

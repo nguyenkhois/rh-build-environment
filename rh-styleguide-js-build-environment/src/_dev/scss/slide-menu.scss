@@ -1,0 +1,818 @@
+@import './styleguide/_breakpoints.scss';
+@import './styleguide/_mixin.scss';
+
+// ********
+// SITE ***
+// ********
+
+$site                   : vardgivare;
+
+// *******************
+// från _base.scss ***
+// *******************
+
+// Spacing
+$space-1                : 0.5rem;
+$space-2                : 1rem;
+$space-3                : 2rem;
+$space-4                : 4rem;
+$space-5                : 8rem;
+$space-6                : 16rem;
+
+// Type-scale
+$h1                     : 2rem;
+$h2                     : 1.5rem;
+$h3                     : 1.25rem;
+$h4                     : 1rem;
+$h5                     : 0.875rem;
+$h6                     : 0.75rem;
+
+$breakpoint-sm          : 36em; // Small devices - 576px
+$breakpoint-md          : 48em; // Medium Tablet - 768px
+$breakpoint-lg          : 62em; // Large Desktop - 992px
+$breakpoint-xl          : 75em; // Extra large devices - 1200px
+
+$breakpoints: (
+				xs: 0,
+				sm: $breakpoint-sm,
+				md: $breakpoint-md,
+                lg: $breakpoint-lg,
+                xl: $breakpoint-xl
+) !default;
+
+// Widths
+$width-1                : 24rem;
+$width-2                : 32rem;
+$width-3                : 48rem;
+$width-4                : 64rem;
+
+// Typography
+$sans-font-family       : proxima-nova, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$code-font-family       : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+// Line-height
+$line-height-1          : 1;
+$line-height-2          : 1.125;
+$line-height-3          : 1.25;
+$line-height-4          : 1.5;
+$letter-spacing         : 1;
+$caps-letter-spacing    : 0.2em;
+$bold-font-weight       : bold;
+
+// ********************
+// från _color.scss ***
+// ********************
+
+// Descriptive Base Colors
+$white                  : #fff;
+$black                  : #000;
+
+// Grey colors
+$grey-lightest	        : #F4F4F4;
+$grey-lighter	        : #E4E4E4;
+$grey-light 	        : #D1D1D1;
+$grey-base 		        : #B1B1B1;
+$grey-dark		        : #7E7E7E;
+$grey-darker	        : #575757;
+$grey-darkest 	        : #2F2F2F;
+
+// Base1 colors
+$base1-light			: #B2C8DE;
+$base1					: #004890;
+$base1-dark				: #003265;
+
+// Base2 colors
+$base2-lighter			: #F5F8FB;
+$base2-light      		: #D0E3F3;
+$base2		       		: #61A2D8;
+$base2-dark       		: #447197;
+
+// Base3 colors
+$base3-light  			: #C3DCC1;
+$base3     				: #378A30;
+$base3-dark   			: #266122;
+
+// Complementary1 colors
+$complementary1-light   : #EDF1C9;
+$complementary1    		: #C3D04C;
+$complementary1-dark    : #899235;
+
+// Complementary2 colors
+$complementary2-light	: #FEE7B9;
+$complementary2			: #FCAF15;
+$complementary2-dark	: #B07A0F;
+
+// Complementary3 colors
+$complementary3-light   : #E3B7BE;
+$complementary3     	: #A01026;
+$complementary3-dark    : #700B1B;
+
+// Warning colors
+$warning-light   		: #FCC8C8;
+$warning		     	: #C82828;
+$warning-dark    		: #941E1E;
+
+// Vuxhalland colors
+$link-visited			: #551A8B;
+$vuxhalland             : #E99579;
+$vuxhalland2            : #D07D88;
+
+// Color Usage
+$color-primary          : $base1;
+$color-secondary        : $base3;
+$color-shadow           : rgba($black, 0.35);
+$yellow-background      : #FEF9EE;
+
+// *************************
+// från _typography.scss ***
+// *************************
+
+// Typography small
+$h1-small            	: em(24);
+$h2-small               : em(22);
+$h3-small               : em(20);
+$h4-small               : em(18);
+$h5-small               : em(16);
+$h6-small               : em(14);
+$p-small                : em(13);
+
+// Typography medium
+$h1-medium              : em(32);
+$h2-medium              : em(26);
+$h3-medium              : em(22);
+$h4-medium              : em(20);
+$h5-medium              : em(18);
+$h6-medium              : em(16);
+$p-medium               : em(15);
+
+// Typography large
+$h1-large              : em(40);
+$h2-large              : em(28);
+$h3-large              : em(24);
+$h4-large              : em(22);
+$h5-large              : em(20);
+$h6-large              : em(18);
+$p-large               : em(16);
+
+// Heading size
+$heading-line-height-small        : em(35);
+$heading-line-height-medium-large : em(30);
+
+// Font-size
+$font-size-small       : em(13);
+$font-size-medium      : em(15);
+$font-size-large       : em(16);
+
+// Line-height
+$line-height-small 	   : em(20);
+$line-height-medium    : em(21);
+$line-height-large     : em(22);
+
+// Page content size
+$page__container--min-width: 18em; //20em - 320px - iPhone 5
+$page__container--max-width: 90em; //1440px
+
+$page__container--padding-x: 0.7em; //11.2px - For small telephone
+$page__container-small--padding-x: 1em; //16px
+$page__container-medium--padding-x: 1.875em; //30px
+$page__container-large--padding-x: 3.75em; //60px
+$page__container-xlarge--padding-x: 5em; //80px
+
+/* Specific settings */
+$vg-color-main: #005069;
+$vg-color-light-1: #417795;
+$vg-color-light-2: #BEDEE3;
+$vg-color-light-3: #F4C870;
+$vg-color-light-4: #D9E4EA;
+$vg-color-light-5: #F7FAFD;
+$vg-color-light-6: #F4F4F4;
+$vg-color-light-7: #67BAC7;
+$vg-color-light-1-transparent-1: rgba(65,119,149,0.85);
+
+
+/* Specific styling for Vardgivare website */
+$home-main-glutter: 1.875em; //30px x 2 = 60px
+$home-main-padding-y: 2.5em; //40px
+$home-blocks-offset: .6em;
+
+body {
+    overflow-x: hidden;
+}
+
+.rh-vg {
+
+    &__header {
+        &-logo-group {
+            margin-top: 1em;
+
+            display: flex;
+            align-items: flex-end;
+
+            &__name {
+                margin-left: 1em;
+                margin-bottom: .55em;
+                font-size: 1em;
+
+                @include large {
+                    margin-bottom: .4em;
+                    font-size: 1.25em;
+                }
+            }
+
+            &--align-bottom {
+                @include large {
+                    justify-content: flex-end;
+                    margin-bottom: 1em;
+                }
+            }
+        }
+
+        &-round-button {
+            width: 2.1875em; //35px
+            min-width: 2.1875em; // Fix for IE11
+            height: 2.1875em;
+            min-height: 2.1875em; // Fix for IE11
+            text-align: center;
+            padding-top: .55em;
+
+            @include medium {
+                width: 2.5em; //40px
+                min-width: 2.5em;
+                height: 2.5em;
+                min-height: 2.5em;
+
+                padding-top: .75em;
+            }
+        }
+
+        &-icon {
+            &-theme {
+                background-color: $vg-color-main;
+                color: #ffffff;
+                border-color: $vg-color-main;
+            }
+
+            &-link {
+                text-decoration: none;
+            }
+        }
+
+        &-search {
+            &-button {
+                box-shadow: none;
+                font-weight: bold;
+            }
+        }
+
+        &-functions {
+            margin-top: 1em;
+            margin-bottom: 1em;
+
+            &__item {
+                display: flex;
+                align-items: center;
+
+                &-link {
+                    margin-left: .2em;
+                    color: #000000;
+                    text-decoration: none;
+                }
+            }
+
+            &-search-and-menu {
+                display: flex;
+                margin-left: auto;
+                justify-content: flex-end;
+            }
+
+            &-talking {
+                @include large {
+                    margin-left: .5em;
+                    margin-bottom: 1em;
+                }
+            }
+        }
+    }
+
+    &__search {
+        &-container {
+            min-height: 0.1875em; //3px
+            background-color: $vg-color-main; //3px
+        }
+
+        &-box {
+            padding-top: 1.8em;
+            padding-bottom: 1.8em;
+
+            &>form {
+                width: 100%;
+            }
+        }
+    }
+
+    &__home {
+        &-main {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @include large {
+                display: block;
+                flex-direction: initial;
+            }
+        }
+
+        &-left-group {
+            padding-bottom: $home-main-padding-y;
+
+            @include large {
+                padding-top: $home-main-padding-y;
+
+                padding-left: $page__container-large--padding-x;
+                padding-right: $home-main-glutter;
+            }
+
+            @include xlarge {
+                padding-left: $page__container-xlarge--padding-x;
+            }
+        }
+
+        &-blocks {
+
+            &-container {
+                // Definition
+                $prefix: "rh-vg__home-blocks-container";
+                $container-py: $prefix + "-py";
+                $container-px: $prefix + "-px";
+                $container-p: $prefix + "-p";
+
+                // Offset calculation for grid system
+                $container-py-offset-top: $home-main-padding-y - $home-blocks-offset;
+                $container-py-offset-bottom: $home-main-padding-y - $home-blocks-offset;
+
+                $container-px-offset-right: $home-blocks-offset;
+
+                // CSS Generation
+                @include create-container-py($container-py, $home-main-padding-y, 0, 0);
+                @include create-container-px($container-px, 0, $container-px-offset-right);
+
+                @include create-container-p($container-p, $container-py, $container-px) {
+
+                    // Changes container's behavior (only padding-left) on md mode - lg mode and upp
+                    @include medium {
+                        padding-left: $page__container-medium--padding-x - $home-blocks-offset;
+                    }
+
+                    @include large {
+                        padding-left: $home-main-glutter - $home-blocks-offset;
+                    }
+                }
+            }
+        }
+
+        &-site-info {
+            padding: 1.875em 0 0 0; //30px
+
+            @include large {
+                padding-top: 0;
+            }
+
+            &__title {
+                @extend .rh-vg__title;
+
+                font-size: 1.875em;
+                font-weight: bold;
+                word-break: break-word;
+
+                color: #ffffff;
+
+                @include medium {
+                    color: #000000;
+                }
+            }
+        }
+
+        &-news {
+            @include large {
+                margin-top: 2em;
+            }
+
+            &__header {
+                border-bottom-style: solid;
+                border-bottom-width: 0.125em; //2px
+                border-bottom-color: $vg-color-main;
+
+                &-title {
+                    @extend .rh-vg__title;
+
+                    font-size: 1.125em; //18px
+                    font-weight: bold;
+                    line-height: 1em; //25px
+
+                    @include large {
+                        font-size: 1.5em; //24px
+                    }
+                }
+            }
+
+            &__item {
+                margin-top: 1.5625em; //25px
+
+                &-publish {
+                    display: flex;
+
+                    &-info {
+                        margin: 0;
+                        font-size: 0.8125em; //13px
+
+                        @include large {
+                            font-size: 0.875em; //14px
+                        }
+                    }
+
+                    &-icon {
+                        font-family: "feather";
+                        font-size: 0.8125em; //13px
+                        margin: .168em .3em 0 0;
+
+                        &:before {
+                            content: "\e84d";
+                        }
+                    }
+                }
+
+                &-title {
+                    @extend .rh-vg__title;
+
+                    font-size: 1em;
+                    font-weight: bold;
+
+                    @include large {
+                        font-size: 1.25em; //20px
+                    }
+
+                    &-link {
+                        color: $vg-color-main;
+                    }
+                }
+
+                &-description {
+                    @extend .rh-vg__description;
+
+                    font-size: 0.9375em; //15px
+
+                    @include large {
+                        font-size: 1em; //16px
+                    }
+                }
+            }
+
+            &__view-more {
+                margin-top: 2em;
+            }
+        }
+    }
+
+    &__page {
+        &-left-container-px {
+            @include large {
+                padding-right: 0.9375em; //15px
+            }
+
+            @include xlarge {
+                padding-right: 1.875em; //30px
+            }
+        }
+
+        &-between-container-px {
+            @include large {
+                padding-left: 0.9375em; //15px
+                padding-right: 0.9375em;
+            }
+
+            @include xlarge {
+                padding-left: 1.875em; //30px
+                padding-right: 1.875em;
+            }
+        }
+
+        &-right-container-px {
+            @include large {
+                padding-left: 0.9375em; //15px
+            }
+
+            @include xlarge {
+                padding-left: 1.875em; //30px
+            }
+        }
+
+    }
+
+    &__nav {
+        &-left {
+            &__link {
+                color: #000000;
+            }
+        }
+    }
+
+    &__search-box {
+        font-family: proxima-nova;
+    }
+
+    // Helpers
+    &__title {
+        line-height: 1.3125em;
+        margin-bottom: .1em;
+
+        @include medium {
+            line-height: 1.375em;
+        }
+    }
+
+    &__description {
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+    &__styling {
+        &-dark {
+            color: #ffffff;
+            background-color: $vg-color-main;
+        }
+
+        &-light-1 {
+            color: #ffffff;
+            background-color: $vg-color-light-1;
+        }
+
+        &-light-2 {
+            color: #000000;
+            background-color: $vg-color-light-2;
+        }
+    }
+
+    &__bg-color {
+        &-dark {
+            background-color: $vg-color-main;
+        }
+
+        &-light-1 {
+            background-color: $vg-color-light-1;
+        }
+
+        &-light-2 {
+            background-color: $vg-color-light-2;
+        }
+    }
+}
+
+// Speciall - Ambulans
+.rh-vg__styrda-dokument {
+
+    &-container {
+        @include large {
+            padding-left: 8em;
+            padding-right: 8em;
+        }
+
+        @include xlarge {
+            padding-left: 15em;
+            padding-right: 15em;
+        }
+    }
+
+    margin-bottom: 4em;
+
+    .std-container-inner.std-search-result {
+        background-color: #f4f4f4;
+        margin: 1em 0;
+        padding: 1em;
+        border-radius: 4px;
+    }
+
+    .std-search-tab {
+        margin: 1em 0;
+
+        li {
+            height: 1.8em;
+            cursor: pointer;
+
+            &:hover {
+                color: #005069;
+            }
+        }
+    }
+
+    .std-search-tab-active {
+        font-weight: bold;
+    }
+
+    button {
+        display: none;
+    }
+
+    a {
+        color: $vg-color-main;
+        word-break: break-word; //TODO
+    }
+
+    strong {
+        line-height: 1.4em;
+    }
+
+    #std_orderby {
+        height: 2.8em;
+        width: 14em;
+        font-size: 1em;
+    }
+}
+
+#std-results {
+    @extend .rh-vg__styrda-dokument;
+}
+
+// End of Ambulans
+
+
+/* Menu */
+/* body {
+    overflow-x: hidden;
+} */
+
+$menu-item__icon-size: 30px;
+$menu-top-bar__height: 70px;
+$menu-body--min-width: 320px;
+$menu-body--max-width: 643px;
+$menu-body__offset-bottom: 90px;
+
+$menu-body--z-index: 60;
+$menu-overlay--z-index: 50;
+
+.rh-menu {
+
+    // Main button
+    &__button {
+        cursor: pointer;
+
+        &-close {
+            margin-left: auto;
+            background-color: #ffffff;
+            color: $vg-color-main;
+            border-color: $vg-color-main;
+        }
+    }
+
+    &__top-bar {
+        top: 0;
+        display: flex;
+        align-items: center;
+
+        height: $menu-top-bar__height;
+
+        padding-right: 0.84375em;
+        background-color: #ffffff;
+
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+        @include medium {
+            padding-right: .7em;
+        }
+    }
+
+    &__body {
+        z-index: $menu-body--z-index;
+
+        top: 0;
+        right: $menu-body--max-width * -1;
+
+        width: 100%;
+        min-width: $menu-body--min-width;
+        max-width: $menu-body--max-width;
+        height: 100vh;
+
+        background-color: #ffffff;
+
+        -webkit-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+
+        scroll-behavior: smooth;
+
+        // iOS
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+
+        &--show {
+            right: 0;
+        }
+    }
+
+    &__overlay {
+        z-index: $menu-overlay--z-index;
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &__link {
+        color: #000000;
+        line-height: 1.4;
+
+        &-level-1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        &--active {
+            font-weight: bold;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-top: 1em;
+        padding-right: 1em;
+        padding-bottom: 1em;
+
+        min-height: 60px;
+
+        border-bottom: 1px solid #9CB8C8;
+
+        &-level-1 {
+            background-color: $vg-color-main;
+            color: #ffffff;
+        }
+
+        &-button {
+            width: $menu-item__icon-size;
+            min-width: $menu-item__icon-size;
+            max-width: $menu-item__icon-size;
+
+            height: $menu-item__icon-size;
+            min-height: $menu-item__icon-size;
+            max-height: $menu-item__icon-size;
+
+            text-align: center;
+            padding-top: .45em;
+
+            margin-left: 1em;
+            border-color: $vg-color-main;
+
+            cursor: pointer;
+
+            &-parent {
+                background-color: #ffffff;
+                color: $vg-color-main;
+            }
+
+            &-sub-item {
+                background-color: $vg-color-light-1;
+                color: #ffffff;
+
+                &--active {
+                    background-color: #ffffff;
+                    color: $vg-color-main;
+                }
+            }
+        }
+
+        &-sub-container {
+            &-level-3 {
+                background-color: $vg-color-light-4;
+            }
+
+            &-level-4 {
+                background-color: $vg-color-light-5;
+            }
+
+            &-level-5 {
+                background-color: $vg-color-light-6;
+            }
+        }
+    }
+
+    &__offset {
+        &-top {
+            background-color: $vg-color-main;
+        }
+
+        &-bottom {
+            background-color: $vg-color-main;
+            height: $menu-body__offset-bottom;
+        }
+    }
+}

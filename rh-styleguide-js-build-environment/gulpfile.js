@@ -1,9 +1,9 @@
 const { watch, src, series, dest } = require('gulp');
+
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
-const replace = require('gulp-replace');
 
 const browserify = require('browserify');
 const babelify = require('babelify');
@@ -39,11 +39,11 @@ function devServer(cb) {
         },
         watchOptions: {
             ignoreInitial: true,
-            ignored: /node_modules/
+            ignored: /node_modules|public/
         }
     });
 
-    watch(codeBase).on('change', browserSync.reload); // Watching *.php files for reloading
+    watch(codeBase).on('change', browserSync.reload); // Watching other file types for reloading
     watch(scssDevPath, series(compile_scss)); // Watching SCSS files for CSS injecting
 
     cb();
@@ -63,6 +63,10 @@ function testServer(cb) {
             serveStaticOptions: {
                 extensions: staticExtensions
             },
+        },
+        watchOptions: {
+            ignoreInitial: true,
+            ignored: /node_modules|src/
         }
     });
 
@@ -232,18 +236,22 @@ function copyAppConfigFile(cb, modeEnv = 'production') {
     const appConfigFile = `${devPath}/app.config.json`;
     const appConfigFilePublic = `${publicPath}/app.config.json`;
 
+    !fs.existsSync(publicPath) && fs.mkdirSync(publicPath);
+
     if (fs.existsSync(appConfigFile)) {
         fs.readFile(appConfigFile, (err, data) => {
             if (err) throw err;
 
             const appConfigData = JSON.parse(data) || {};
             const newData = Object.assign(appConfigData, { environment: modeEnv });
-
             const newConfig = JSON.stringify(newData, null, 2);
-            fs.writeFile(appConfigFilePublic, newConfig, (err) => {
-                if (err) throw err;
-                console.log(`\n\x1b[32m√ Done!\x1b[0m Copy successfully the config file to \x1b[90m${appConfigFilePublic}\x1b[0m.`);
-            });
+
+            newConfig &&
+                fs.existsSync(publicPath) &&
+                fs.writeFile(appConfigFilePublic, newConfig, (err) => {
+                    if (err) throw err;
+                    console.log(`\n\x1b[32m√ Done!\x1b[0m Copy successfully the config file to \x1b[90m${appConfigFilePublic}\x1b[0m.`);
+                });
         });
     }
 
@@ -261,10 +269,10 @@ function copyAppConfigForProduction(cb) {
 }
 
 exports.default = devServer;
-exports.test = testServer;
+exports.testsrv = testServer;
 
-exports.minifycode = series(scssBuild, jsMinify);
 exports.buildcode = series(scssBuild, jsBuild);
+exports.minifycode = series(scssBuild, jsMinify);
 
 exports.build = series(scssBuild, jsBuild, copyHtmlFiles, copyOtherDirectories, copyAppConfigForBuild);
 exports.publish = series(scssBuild, jsMinify, copyHtmlFiles, copyOtherDirectories, copyAppConfigForProduction);

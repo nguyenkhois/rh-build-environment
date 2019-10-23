@@ -2,11 +2,19 @@
     &__header {
         margin: 1em;
 
-        h1 {
+        &-title {
             color: #135c86;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        &-icon {
+            height: 32px;
+            margin: 5px 10px;
         }
 
         &__menu {
+            margin: 10px 0;
             a {
                 text-decoration: none;
                 color: #1a76ac;
@@ -19,10 +27,12 @@
     }
 
     &__detail-info {
-        margin: 2em 1em;
+        margin: 1em;
+        max-width: 18em;
 
         &__title {
             font-weight: bold;
+            cursor: pointer;
         }
 
         &__container {

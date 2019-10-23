@@ -1,6 +1,6 @@
 {
     "name": "project-devenv",
-    "version": "1.0.0-alpha.1.0.0",
+    "version": "1.0.0",
     "description": "The config file is using for the local front-end development environment",
     "main": "",
     "author": "",
@@ -12,14 +12,14 @@
         "node": ">=8.3.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.5.5",
+        "@babel/core": "^7.6.4",
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-        "@babel/preset-env": "^7.5.5",
+        "@babel/preset-env": "^7.6.3",
         "babelify": "^10.0.0",
         "browser-sync": "^2.26.7",
         "browserify": "^16.3.0",
-        "eslint": "^6.0.1",
+        "eslint": "^6.5.1",
         "globby": "^10.0.1",
         "gulp": "^4.0.2",
         "gulp-concat": "^2.6.1",

@@ -1,3 +1,5 @@
 // Mixins
-@mixin medium { @media (min-width: 768px) {@content;} } // Medium Tablet
-@mixin large { @media (min-width: 992px) {@content;} } // Large Desktop
+@mixin small { @media (min-width: $breakpoint-sm) {@content;} } // Small devices - 576px
+@mixin medium { @media (min-width: $breakpoint-md) {@content;} } // Medium Tablet - 768px
+@mixin large { @media (min-width: $breakpoint-lg) {@content;} } // Large Desktop - 992px
+@mixin xlarge { @media (min-width: $breakpoint-xl) {@content;} } // Extra large devices - 1200px

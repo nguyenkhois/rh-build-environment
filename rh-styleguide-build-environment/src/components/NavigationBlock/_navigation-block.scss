@@ -1,0 +1,127 @@
+.rh-navigation-block {
+    /* Box-modell/beteende */
+    min-height: 3.75em; //60px
+    background-color: #417795;
+
+    border: 0.0625em solid #417795;
+    border-radius: 0.375em; //6px
+    padding: 0.875em; //14px
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+
+        &-round-button {
+            height: 1.875em; //30px
+            min-height: 1.875em; // Fix for IE11
+            width: 1.875em; //30px
+            min-width: 1.875em; // Fix for IE11
+
+            padding: 0.4em;
+
+            font-size: 1em;
+
+            &:hover,
+            &:active {
+                background-color: #D0E3F3;
+                color: #000000;
+            }
+
+            &-icon {
+                &:after {
+                    content: "\e829";
+                }
+            }
+        }
+
+        &-title {
+            margin: 0.15em 0 0 0.8em; //15px
+
+            @include large {
+                margin: 0.05em 0 0 0.7778em; //15px
+            }
+
+            &-link {
+                color: #ffffff;
+                font-size: 1.125em; //18px
+                font-weight: bold;
+                line-height: 1.4em;
+                word-break: break-word;
+
+                @include large {
+                    font-size: 1.25em;
+                }
+            }
+        }
+    }
+
+    &__description {
+        margin: 0.5em 0 0 0; //8px
+
+        &-text {
+            color: #ffffff;
+        }
+    }
+}
+
+// Organism
+.rh-navigation-block__container {
+    &-grid {
+        padding: 1.1em .4em;
+        background-color: #005069;
+
+        // 2 columns
+        @include medium { padding: 1.1em 1em; }
+
+        // 3 columns
+        @include xlarge { padding: 1.1em 4.2em; }
+
+        &__item-container {
+            padding: .6em;
+            @include medium {
+                padding: .65em;
+            }
+        }
+    }
+
+    &-flex {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: space-between;
+        padding: 1.1em 1em;
+
+        background-color: #005069;
+
+        .rh-navigation-block { margin: .6em 0; }
+
+        // 2 columns
+        @include medium {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .rh-navigation-block { margin: .6em; width: 47.2%; }
+        }
+
+        // 3 columns
+        @include large {
+            .rh-navigation-block { width: 31%; }
+        }
+
+        @include xlarge {
+            padding: 1.1em 4.4em;
+
+            .rh-navigation-block { width: 31.4%; }
+        }
+    }
+}
+
+// Utility
+.rh-page__content {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+    max-width: 90em; //1440px
+    min-width: 20em; //320px
+}

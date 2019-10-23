@@ -11,7 +11,7 @@ const customConfigs = require('./webpack.custom'); // Using your own configs
 module.exports = {
     entry: customConfigs.entryPoints,// which file to begin with
     output: {
-        path: path.resolve(__dirname, customConfigs.distDir), // what folder to put bundle in
+        path: path.join(__dirname, customConfigs.distDir), // what folder to put bundle in
         filename: '[name].[hash].js', // what name to use for bundle
         publicPath: '/'
     },
@@ -20,13 +20,13 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 include: [
-                    path.resolve(__dirname, "src")
+                    path.join(__dirname, "src")
                 ],
                 use: ['babel-loader']
             },
             {
-                test: /\.hbs$/i,
-                use: 'raw-loader',
+                test: /\.hbs$/,
+                loader: "handlebars-loader"
             }
         ]
     },
@@ -42,7 +42,7 @@ module.exports = {
             cleanOnceBeforeBuildPatterns: ['**/*', '!images'] // No remove "images" for a faster development
         }),
         new WriteFilePlugin({
-            test: /\.(png|jpg|gif|svg)$/i
+            test: /\.(png|jpg|gif|svg|ico)$/i
         }),
         new CopyWebpackPlugin([
             { from: 'src/images', to: 'images' }

@@ -18,4 +18,6 @@ public
 #.eslintrc.json
 #devenv.config.json
 #gulpfile.js
+#LICENSE
 #package.json
+#README.md
