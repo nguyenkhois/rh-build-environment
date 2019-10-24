@@ -29,7 +29,7 @@ function devServer(cb) {
         notify: false,
         watchOptions: {
             ignoreInitial: true,
-            ignored: /node_modules|vendor/
+            ignored: /node_modules|vendor|wp|plugins|mu-plugins|uploads|config|datafilter|languages/
         }
     });
 

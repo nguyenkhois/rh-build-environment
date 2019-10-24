@@ -1,6 +1,6 @@
 {
     "name": "styleguidejs-devenv",
-    "version": "1.0.0-alpha.1.0.0",
+    "version": "1.0.0-beta.1.0.0",
     "description": "The config file is using for the local front-end development environment",
     "main": "",
     "author": "",
@@ -30,7 +30,7 @@
         "gulp-sass": "^4.0.2",
         "gulp-sourcemaps": "^2.6.5",
         "jquery": "^3.4.1",
-        "node-sass": "^4.12.0",
+        "node-sass": "^4.13.0",
         "vinyl-buffer": "^1.0.1",
         "vinyl-source-stream": "^2.0.0"
     }
