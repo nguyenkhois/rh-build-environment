@@ -57,16 +57,11 @@ function scssCompilation(cb) {
  */
 function scssBuild(cb) {
     let isSuccess = true;
-    const cssFullFilename = `${bundleName}.css`;
+    const cssFullFilename = `${bundleName}.bundle.css`;
 
     src(scssDevPath)
-        .pipe(sourcemaps.init())
-        .pipe(sass()
-            //sass.sync({ outputStyle: 'compressed' })
-                //.on('error', sass.logError)
-        )
+        .pipe(sass())
         .pipe(concat(cssFullFilename))
-        .pipe(sourcemaps.write('.'))
         .pipe(dest(cssPublicPath))
         .on('error', (error) => {
             isSuccess = false;
@@ -113,12 +108,10 @@ function scssMinify(cb) {
 
 function jsBuild(cb) {
     let isSuccess = true;
-    const jsFullFilename = `${bundleName}.js`;
+    const jsFullFilename = `${bundleName}.bundle.js`;
 
     src(jsDevPath)
-        .pipe(sourcemaps.init())
         .pipe(concat(jsFullFilename))
-        .pipe(sourcemaps.write('.'))
         .pipe(dest(jsPublicPath))
         .on('error', (error) => {
             isSuccess = false;
@@ -187,9 +180,9 @@ function jsMinify(cb) {
 
 function help(cb) {
     const helpInformation = `USAGE:
-        \n\t\x1b[36mgulp \x1b[0m\n\t   Starts the local server
-        \n\t\x1b[36mgulp build\x1b[0m\n\t   Bundles CSS and JS for production
-        \n\t\x1b[36mgulp minify\x1b[0m\n\t   Minify CSS and JS for production
+        \n\t\x1b[36mgulp \x1b[0m\n\t   Starts the local server at http://localhost:${localServer.port}
+        \n\t\x1b[36mgulp build\x1b[0m\n\t   Bundles CSS and JS for production \x1b[90m(*.bundle.*)\x1b[0m
+        \n\t\x1b[36mgulp minify\x1b[0m\n\t   Minify CSS and JS for production \x1b[90m(*.min.*)\x1b[0m
         \n\t\x1b[36mgulp help\x1b[0m\n\t   View the help information
     `;
 
