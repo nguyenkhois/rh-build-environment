@@ -17,7 +17,7 @@ sass.compiler = require('node-sass');
 // Get configs from a JSON file
 const { localServer, codeBase, development, production } = require('./devenv.config.json');
 const { cssDevPath, scssDevPath, jsDevPath } = development;
-const { jsPublicPath, cssPublicPath, bundleName } = production;
+const { jsPublicPath, cssPublicPath, bundleName, bundleVersion } = production;
 
 // Dev server
 function devServer(cb) {
@@ -57,7 +57,7 @@ function scssCompilation(cb) {
  */
 function scssBuild(cb) {
     let isSuccess = true;
-    const cssFullFilename = `${bundleName}.bundle.css`;
+    const cssFullFilename = `${bundleName}-${bundleVersion}.css`;
 
     src(scssDevPath)
         .pipe(sass())
@@ -80,7 +80,7 @@ function scssBuild(cb) {
 
 function scssMinify(cb) {
     let isSuccess = true;
-    const cssFullFilename = `${bundleName}.min.css`;
+    const cssFullFilename = `${bundleName}.${bundleVersion}.min.css`;
 
     src(scssDevPath)
         .pipe(sourcemaps.init())
@@ -108,7 +108,7 @@ function scssMinify(cb) {
 
 function jsBuild(cb) {
     let isSuccess = true;
-    const jsFullFilename = `${bundleName}.bundle.js`;
+    const jsFullFilename = `${bundleName}-${bundleVersion}.js`;
 
     src(jsDevPath)
         .pipe(concat(jsFullFilename))
@@ -136,7 +136,7 @@ function jsBuild(cb) {
  * @param {callback} cb
  */
 function jsMinify(cb) {
-    const jsFullFilename = `${bundleName}.js`;
+    const jsFullFilename = `${bundleName}.${bundleVersion}.min.js`;
 
     globby(jsDevPath)
         .then((jsEntries) => {
@@ -157,7 +157,7 @@ function jsMinify(cb) {
                 .pipe(sourcemaps.init({ loadMaps: true }))
                 .pipe(minify({
                     noSource: true,
-                    ext: { min: '.min.js' }
+                    ext: { min: '.js' }
                 }))
                 .pipe(sourcemaps.write("."))
                 .pipe(dest(jsPublicPath))
@@ -182,7 +182,8 @@ function help(cb) {
     const helpInformation = `USAGE:
         \n\t\x1b[36mgulp \x1b[0m\n\t   Starts the local server at http://localhost:${localServer.port}
         \n\t\x1b[36mgulp build\x1b[0m\n\t   Bundles CSS and JS for production \x1b[90m(*.bundle.*)\x1b[0m
-        \n\t\x1b[36mgulp minify\x1b[0m\n\t   Minify CSS and JS for production \x1b[90m(*.min.*)\x1b[0m
+        \n\t\x1b[36mgulp minify\x1b[0m\n\t   Minifies CSS and JS for production \x1b[90m(*.min.*)\x1b[0m
+        \n\t\x1b[36mgulp all\x1b[0m\n\t   Bundles and minifies CSS and JS for production
         \n\t\x1b[36mgulp help\x1b[0m\n\t   View the help information
     `;
 
@@ -194,4 +195,5 @@ function help(cb) {
 exports.default = devServer;
 exports.build = series(scssBuild, jsBuild);
 exports.minify = series(scssMinify, jsMinify);
+exports.all = series(scssBuild, jsBuild, scssMinify, jsMinify);
 exports.help = help;

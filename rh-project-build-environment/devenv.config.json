@@ -15,6 +15,7 @@
     },
     "production": {
         "bundleName": "bundle",
+        "bundleVersion": "1.0.0",
         "jsPublicPath": "web/include/scripts",
         "cssPublicPath": "web/include/styles"
     }
