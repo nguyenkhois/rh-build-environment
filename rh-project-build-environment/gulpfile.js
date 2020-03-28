@@ -40,12 +40,17 @@ function devServer(cb) {
 }
 
 function scssCompilation(cb) {
+    const cssFilename = `${bundleName}.css`;
+
     src(scssDevPath)
-        .pipe(sass())
+        .pipe(
+            sass.sync()
+                .on('error', (err) => console.error(`\n\x1b[31m✗ Error!\x1b[0m\n${err.message}`))
+        )
+        .pipe(concat(cssFilename))
         .pipe(dest(cssDevPath))
-        .pipe(browserSync.stream({
-            match: "**/*.css"
-        }));
+        .pipe(browserSync.stream({ match: "**/*.css" }))
+        .on('error', (err) => console.error(`\n\x1b[31m✗ Error!\x1b[0m\n${err.message}`));
 
     cb();
 }
@@ -60,12 +65,12 @@ function scssBuild(cb) {
     const cssFullFilename = `${bundleName}-${bundleVersion}.css`;
 
     src(scssDevPath)
-        .pipe(sass())
+        .pipe(sass.sync().on('error', (err) => console.error(`\n ${err.message}`)))
         .pipe(concat(cssFullFilename))
         .pipe(dest(cssPublicPath))
-        .on('error', (error) => {
+        .on('error', (err) => {
             isSuccess = false;
-            console.error(error);
+            console.error(`\n ${err.message}`);
         })
         .on('end', () => {
             if (isSuccess) {
@@ -86,8 +91,7 @@ function scssMinify(cb) {
         .pipe(sourcemaps.init())
         .pipe(
             sass.sync({ outputStyle: 'compressed' })
-                .on('error', sass.logError)
-        )
+                .on('error', (err) => console.error(`\n ${err.message}`)))
         .pipe(concat(cssFullFilename))
         .pipe(sourcemaps.write('.'))
         .pipe(dest(cssPublicPath))

@@ -4,14 +4,17 @@
 .idea
 .DS_Store
 
-# Using for front-end development
+# Frontend
 node_modules
 package.json
 package-lock.json
+yarn.lock
 
+# Frontend environment
 _dev
 .editorconfig
 .eslintignore
 .eslintrc.json
+.prettierrc
 devenv.config.json
 gulpfile.js
